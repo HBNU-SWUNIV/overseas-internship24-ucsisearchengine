@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<body>
+<header th:fragment="header">
+    <div class="logo">
+        <a th:href="${#authorization.expression('isAuthenticated()') ? '/search' : '/home'}">
+            <img class="searchicon" src="/icon/searchicon.png" style="width: 26px;">
+            <span class="university">UCSI</span>
+        </a>
+
+        <div class="auth-logout">
+            <a th:if="${#authorization.expression('isAuthenticated()')}" th:href="@{/logout}">
+                <img src="/icon/exit.png" alt="" style="width: 23px;">
+                LOGOUT
+            </a>
+        </div>
+    </div>
+</header>
+</body>
+</html>

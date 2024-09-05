@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout}">
+<head>
+    <title>UCSI SearchEngine</title>
+    <link rel="icon" href="/icon/favicon.png" type="image/png">
+</head>
+<body>
+    <div class="main" layout:fragment="content">
+        <div class="login">
+            <div class="explain">
+                <div class="explain-content">
+                    <span class="title">UCSI </br> SEARCH ENGINE</span>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <span class="detail-content">
+                        This file explorer is a fast, concise and accurate solution for UCSI universities.
+                        <br>
+                        It is designed based on HTML and runs in a web browser.
+                        It is highly expandable and allows you to easily add various functions.
+                        <br>
+                        Designed with user experience as a top priority, the program ensures efficient navigation.
+                    </span>
+                    <span class="design">
+                        Designed by H0LYW4T3R
+                    </span>
+                </div>
+            </div>
+            <div class="loginform">
+                <div class="logintext">
+                    LOGIN
+                </div>
+                <div class="id-password">
+                    <form th:action="@{/}" method="post">
+                        <div class="logininput">
+                            <label for="username">User ID</label>
+                            <input type="text" name="username" id="username" placeholder="ID" autofocus>
+                        </div>
+                        <div class="passwordinput">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" placeholder="Password">
+                        </div>
+                        <div class="error" th:if="${param.error}">
+                            Please Check Your ID or Password.
+                        </div>
+                        <button class="loginbutton" type="submit">
+                            <img src="/icon/goplane.png" alt="" style="width: 20px; height: 20px">
+                        </button>
+                        <span class="forget"><a href="">Forgot Password</a></span>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

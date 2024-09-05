@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/icon/favicon.png" type="image/png">
+    <title>UCSI SearchEngine</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="search-area">
+            <form th:action="@{/result}" method="get">
+                <div class="search-container">
+                    <input class="search-input" type="text" name="keyword" autofocus autocomplete="off">
+                    <button class="search-button"><img src="/icon/searchicon.png" style="height: 26px;"></button>
+                </div>
+                <div class="history">
+                    <div class="history-content">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="error-code">
+            Please enter a search keyword
+        </div>
+        <div class="success-clipboard">
+            <span>ABSOLUTE PATH SAVED ON CLIPBOARD</span>
+            <div class="path-container">
+            </div>
+        </div>
+        <div class="result-count">
+            <div class="result-box">
+                <span th:text="'Total Search Result ' + ${resultcounts}"></span>
+            </div>
+        </div>
+        <div class="filetype-area">
+            <button class="type-button">
+                <img class="type-icon" src="/icon/hamberger.png" style="width: 25px"></img>
+            </button>
+            <div class="list">
+                <ul>
+                    <li data-type="all"><img src="/icon/file.png" alt="" style="width: 26px;">ALL</li>
+                    <li data-type="pdf"><img src="/icon/PDF.png" alt="" style="width: 23px;">PDF</li>
+                    <li data-type="docx"><img src="/icon/DOC.png" alt="" style="width: 28px; margin-right: 6px !important;">DOC</li>
+                    <li data-type="pptx"><img src="/icon/PPT.png" alt="" style="width: 24px;">PPT</li>
+                    <li data-type="xlsx"><img src="/icon/XLSX.png" alt="" style="width: 24px;">XLSX</li>
+                    <li data-type="jpeg"><img src="/icon/JPG.png" alt="" style="width: 26px;">JPG</li>
+                    <li data-type="png"><img src="/icon/PNG.png" alt="" style="width: 24px; ">PNG</li>
+                </ul>
+            </div>
+        </div>
+        <div id="result-wrapper">
+            <div class="nofile-flag" th:if="${resultcounts == 0}">
+                <img src="/icon/nofile.png" alt="">
+            </div>
+            <div class="file-area" id="fileArea" th:if="${resultcounts > 0}">
+                <div class="loader-container">
+                    <div class="loader"></div>
+                </div>
+                <div class="result-content" th:each="result : ${results}">
+                    <img class="clipboard" src="/icon/click.png" alt="" style="width: 30px;">
+                    <div class="image-set">
+                        <img style="width: 100px;" th:if="${result.extendName == 'pdf'}" src="/icon/PDF.png" alt="Image 2" />
+                        <img style="width: 125px;" th:if="${result.extendName == 'docx'}" src="/icon/DOC.png" alt="Image 3" />
+                        <img style="width: 102px;" th:if="${result.extendName == 'pptx'}" src="/icon/PPT.png" alt="Image 4" />
+                        <img style="width: 100px;" th:if="${result.extendName == 'xlsx'}" src="/icon/XLSX.png" alt="Image 5" />
+                        <img style="width: 110px;" th:if="${result.extendName == 'jpeg'}" src="/icon/JPG.png" alt="Image 6" />
+                        <img style="width: 102px;" th:if="${result.extendName == 'png'}" src="/icon/PNG.png" alt="Image 7" />
+                        <img style="width: 110px;"  th:unless="${result.extendName == 'path1' or
+                     result.extendName == 'pdf' or
+                     result.extendName == 'docx' or
+                     result.extendName == 'pptx' or
+                     result.extendName == 'xlsx' or
+                     result.extendName == 'jpeg' or
+                     result.extendName == 'png'}"
+                             src="/icon/unknown.png" alt="Default Image" />
+                    </div>
+                    <span class="absolutePath" th:text="${result.absolutePath}" style="display: none;"></span>
+                    <div class="file-content">
+                        <span>TITLE</span>
+                        <div class="filename-border">
+                            <span th:text="${result.fileName}"></span>
+                        </div>
+                    </div>
+
+                    <div class="file-detail">
+                        <span th:text="${result.date}"></span>
+                        <span th:text="${result.size}"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <link rel="icon" href="/icon/favicon.png" type="image/png">
+    <meta charset="UTF-8">
+    <title>UCSI SearchEngine</title>
+</head>
+<body>
+    <div class="search-main" layout:fragment="content">
+        <div class="error-code">
+            Please enter a search keyword
+        </div>
+        <span class="search-title">UCSI SEARCH</span> <!-- 제목을 form 밖으로 이동 -->
+        <span class="searchfor" th:if="${username}">Search for <span class="username" th:text="${username}"></span></span>
+        <form id="main-search" th:action="@{/result}" method="get">
+            <div class="search-container">
+                <input class="search-input" type="text" placeholder="Type Filename" name="keyword" autofocus autocomplete="off">
+                <button class="search-button"><img src="/icon/searchicon.png" style="height: 3vh;"></button>
+            </div>
+            <div class="history">
+                <div class="history-content">
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

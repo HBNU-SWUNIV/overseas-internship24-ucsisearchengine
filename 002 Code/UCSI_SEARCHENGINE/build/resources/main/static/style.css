@@ -1,0 +1,818 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic+Coding&family=Nanum+Gothic:wght@400;700&family=New+Amsterdam&family=Ubuntu&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    user-select: none;
+}
+
+body {
+    background-color: #f3f3f3; /* 배경색 */
+}
+
+/*Header Design*/
+.university {
+    color: #d35454;
+    font-size: 40px;
+    font-family: "New Amsterdam";
+}
+
+.searchicon {
+    margin-left: 10px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    box-shadow: 3px 5px 10px rgba(10, 10, 10, 0.3);
+    border-radius: 5px;
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
+}
+
+.auth-logout > a{
+    color: #d35454;
+    font-family: "Ubuntu";
+    font-size: 10pt;
+    text-decoration: none;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-logout > a > img {
+    margin-right: 5px;
+}
+/*Header Design*/
+
+/*Main Desigin*/
+.main {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* 기본 글꼴 설정 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 전체 화면 높이 */
+    width: 100vw;
+    overflow: auto;
+}
+
+.login {
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    width: 70vw;
+    height: 70vh;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+
+    background-image: url('icon/ucsilogo.png');
+    background-size: contain; /* 이미지 크기를 조정 */
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden; /* border-radius가 이미지에도 적용되도록 */
+}
+
+.login::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.9); /* 반투명한 흰색 레이어 */
+    border-radius: 8px; /* 가상 요소에도 동일하게 적용 */
+}
+
+.explain {
+    margin: 20px 0 20px 20px;
+    z-index: 2;
+    width: 50%;
+    background: linear-gradient(135deg,
+    rgba(240, 108, 108, 0.95) 0%,
+    rgba(240, 140, 140, 0.95) 50%,
+    rgba(241, 176, 92, 0.95) 100%
+    );
+    border-radius: 8px;
+    position: relative;
+}
+
+.explain-content {
+    margin: 10%;
+}
+
+.title {
+    color: white;
+    font-size: 25pt;
+    font-weight: bold;
+}
+
+.detail-content {
+    color: white;
+    font-family: "Ubuntu";
+}
+
+.design {
+    position: absolute;
+    bottom: 20px;
+    display: block;
+    font-size: 8pt;
+    color: #e6e6e6;
+}
+
+.loginform {
+    z-index: 2;
+    width: 50%;
+    background: rgba(255, 255, 255, 0.8); /* 배경색을 반투명하게 설정 */
+    border-radius: 8px;
+    border-radius-topright: 8px;
+    border-radius-bottomright: 8px;
+    margin: 20px 20px 20px 0px;
+    padding: 20px 0 50px 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logintext {
+    font-size: 25pt;
+    font-weight: bold;
+    margin: 30px 0 30px 0;
+    color: #ef817e;
+}
+
+.id-password {
+    margin-top: 5vh;
+    width: 80%; /* 폼의 너비를 전체로 설정 */
+    height: 100%;
+}
+
+.id-password > form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* 항목 사이의 간격 추가 */
+    height: 100%; /* 폼의 높이를 100%로 설정 */
+}
+
+.id-password > form > div > label {
+    color: #6f6f6f; /* 레이블 색상 */
+}
+
+.id-password > form > div > input[type="text"],
+.id-password > form > div > input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px; /* 입력 필드의 둥근 모서리 */
+    box-sizing: border-box; /* 테두리와 패딩이 전체 너비에 포함되도록 */
+    color: #3c3c3c;
+}
+
+.id-password > form > div > input[type="text"]:focus,
+.id-password > form > div > input[type="password"]:focus {
+    border-color: #ef817e; /* 포커스 시 테두리 색상 변경 */
+    outline: none; /* 포커스 시 기본 아웃라인 제거 */
+}
+
+div[th\:if] {
+    color: #e74c3c; /* 오류 메시지 색상 */
+    margin-bottom: 15px; /* 오류 메시지와 폼 사이 여백 */
+}
+
+.loginbutton {
+    width: 100%;
+    padding: 10px 20px;
+    margin-top: 30px;
+    background-color: #ef817e; /* 버튼 배경색 */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.id-password > form > button:hover {
+    background-color: #c0392b; /* 버튼 호버 시 색상 변경 */
+}
+
+.forget {
+    font-size: 12pt;
+    text-align: center; /* Center-aligns the text */
+    margin-top: 10px; /* Adds some space above the link */
+    width: 100%; /* Ensures the link spans the full width of its container */
+}
+
+a {
+    text-decoration: none;
+}
+
+.forget > a {
+    display: block;
+    color: #c0392b;
+}
+
+.forget > a:hover {
+    color: #71221a; /* 버튼 호버 시 색상 변경 */
+}
+
+.error {
+    color: #c0392b;
+}
+
+@media (max-width: 1000px) {
+    .explain {
+        display: none; /* explain 요소를 숨깁니다 */
+    }
+    .loginform {
+        width: 100%; /* loginform의 너비를 100%로 설정 */
+        margin: 20px 0 20px 0;
+    }
+}
+/*Main Desigin*/
+
+/*Search Design*/
+.search-main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* 수직 정렬로 변경 */
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.error-code {
+    position: fixed;
+    right: 20px;
+    top: 80px;
+    box-shadow: 3px 5px 10px rgba(10, 10, 10, 0.3);
+    padding: 10px;
+    color: #d35454;
+    border-radius: 10px;
+    background-color: white;
+    font-family: "Ubuntu";
+    font-size: 10pt;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.error-code.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.search-title {
+    font-size: 30pt;
+    font-family: "New Amsterdam";
+    color: #d35454;
+}
+
+/* 입력 필드와 버튼을 감싸는 컨테이너 스타일 추가 */
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    width: 50vw;
+    height: 45px;
+    border-radius: 30px;
+    border: none;
+    box-shadow: 3px 5px 10px rgba(10, 10, 10, 0.3);
+    padding: 15px;
+    padding-right: 50px !important;
+    background-color: #ffffff;
+    color: #3c3c3c;
+    z-index: 5;
+}
+
+.search-area > form {
+    z-index: 5;
+}
+
+.search-main > form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.search-input:focus {
+    outline: none; /* 포커스 시 기본 아웃라인 제거 */
+    border-color: #ef817e; /* 포커스 시 테두리 색상 변경 */
+}
+
+.search-input:hover {
+    background-color: #e5d4d4;
+}
+
+.search-input.click:hover {
+    background-color: #ffffff;
+}
+
+.search-button {
+    position: absolute;
+    right: 10px;
+    margin-top: 5px;
+    margin-left: 10px;
+    border: none;
+    background: none;
+    z-index: 6; /* z-index 값을 높게 설정 */
+}
+
+
+.searchfor, .username {
+    font-size: 10pt !important;
+    font-family: "New Amsterdam";
+    color: #d35454;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.history {
+    width: 50vw;
+    background-color: #ffffff;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    box-shadow: 3px 5px 10px rgba(10, 10, 10, 0.3);
+    position: absolute;
+    top: 50%;
+    border-radius: 0 0 20px 20px;
+    z-index: 1;
+}
+
+.history.visible {
+    opacity: 1;
+    visibility: visible;
+    /* .visible 클래스를 추가하면 보이게 설정 */
+}
+
+.history-content {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: 10px; /* 그리드 항목 간의 간격 */
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.history-item {
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: "Ubuntu";
+    color: #5a5a5a;
+    font-size: 9pt;
+    margin: 0 5px 5px 5px;
+}
+
+.history-item:hover {
+    background-color: #e5d4d4;
+}
+/*Search Design*/
+
+/*result */
+.search-area {
+    width: 100vw;
+    height: 50px;
+    display: flex;
+    flex-direction: column; /* 수직 정렬로 변경 */
+    align-items: center;
+}
+
+.search-area > form {
+    margin-top: 2px;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+}
+
+.search-area > form > div > input {
+    width: 50vw;
+    height: 46px;
+    border-radius: 30px;
+    border: none;
+    box-shadow: none;
+    padding: 15px;
+    color: #3c3c3c;
+    background-color: #faeaea;
+}
+
+.search-area > form > div > input.clicked {
+    background-color: #ffffff; /* 클릭 시 배경색 흰색으로 변경 */
+}
+
+.search-area > form > div > input:hover {
+    background-color: #f8dddd;
+}
+
+.option {
+    display: flex;
+    flex-direction: column;
+}
+
+.result-count {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.result-box {
+    box-shadow: 3px 5px 10px rgba(10, 10, 10, 0.3);
+    background-color: white;
+    border-radius: 10px;
+    display: inline-flex; /* inline-flex로 설정하면 콘텐츠에 맞게 조정됨 */
+    align-items: center;
+    padding: 10px; /* 텍스트와 경계 사이의 여백 */
+    font-size: 15px; /* 텍스트 크기 설정 */
+    white-space: nowrap; /* 텍스트가 한 줄에 있도록 설정 (필요 시) */
+    overflow: hidden; /* 텍스트가 넘치면 숨기기 (필요 시) */
+    height: 50px;
+}
+
+.result-box > span {
+    font-family: "Ubuntu";
+    color: #d35454;
+}
+
+.filetype-area {
+    width: 100vw;
+    height: 70px;
+    position: fixed;
+    bottom: 15px;
+    z-index: 6;
+    margin-top: 20px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.list {
+    display: none; /* 기본적으로 숨김 */
+    overflow: hidden;
+}
+
+.list.open {
+    display: block; /* 열린 상태에서 보이게 함 */
+}
+
+.list.open li {
+    opacity: 0;
+    margin: 10px !important;
+    animation: slide-in 0.3s ease forwards;
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(-20px);
+        opacity: 0;
+        visibility: hidden;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.list.open li:nth-child(1) {
+    animation-delay: 0.1s;
+    animation-fill-mode: forwards;
+}
+
+.list.open li:nth-child(2) {
+    animation-delay: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+.list.open li:nth-child(3) {
+    animation-delay: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+.list.open li:nth-child(4) {
+    animation-delay: 0.4s;
+    animation-fill-mode: forwards;
+}
+
+.list.open li:nth-child(5) {
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.list.open li:nth-child(6) {
+    animation-delay: 0.6s;
+    animation-fill-mode: forwards;
+}
+
+.list.open li:nth-child(7) {
+    animation-delay: 0.7s;
+    animation-fill-mode: forwards;
+}
+
+.type-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: white;
+    box-shadow: 3px 5px 10px rgba(10, 10, 10, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list > ul {
+    list-style: none;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    overflow: hidden;
+    font-family: "Ubuntu";
+}
+
+@media (max-width: 768px) {
+    .list > ul {
+        position: absolute;
+        left: -10px;
+        bottom: 65px;
+        flex-direction: column;
+        align-items: flex-start;
+        overflow: visible;
+        height: auto;
+    }
+
+    .list > ul > li {
+        margin-left: 0;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+}
+
+.list > ul > li {
+    display: inline-block;
+    margin-left: 20px;
+    width: 80px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 3px 5px 10px rgba(10, 10, 10, 0.3);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #454545;
+    font-size: 9pt;
+    font-weight: bold;
+}
+
+.list > ul > li:hover {
+    background-color: #e3e3e3;
+}
+
+.list > ul > li > img {
+    margin-right: 10px;
+}
+
+.type-button > .type-icon {
+    transition: transform 0.3s ease; /* 애니메이션 효과 */
+}
+
+.type-icon.rotated {
+    transform: rotate(90deg); /* -90도 회전 */
+}
+
+.file-area {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-rows: 350px;
+    padding: 20px;
+    justify-items: center;
+    align-items: center;   /* 세로 중앙 정렬 */
+    margin-bottom: 20px;
+}
+
+.success-clipboard {
+    position: fixed;
+    right: 20px;
+    top: 70px;
+    box-shadow: 3px 5px 10px rgba(10, 10, 10, 0.3);
+    padding: 10px;
+    color: #d35454;
+    border-radius: 10px;
+    background-color: white;
+    font-family: "Ubuntu";
+    font-size: 10pt;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    z-index: 7;
+}
+
+.success-clipboard > span {
+    display: block;
+}
+
+.success-clipboard.visible {
+    opacity: 1;
+    visibility: visible;
+}
+/*disign path*/
+.path-container {
+    margin-top: 5px;
+    display: flex;
+    flex-wrap: wrap; /* 줄 바꿈 허용 */
+    align-items: center;
+    max-width: 400px; /* 컨테이너의 최대 너비를 100%로 설정 */
+    overflow: hidden; /* 넘치는 내용을 숨김 */
+}
+
+.path-part {
+    display: flex;
+    align-items: center;
+    color: #3c3c3c !important;
+    margin: 5px 5px 5px 0;
+    box-shadow: 1px 2px 3px rgba(10, 10, 10, 0.3);
+    border-radius: 3px;
+    padding: 5px;
+    white-space: nowrap; /* 텍스트가 줄 바꿈되지 않도록 설정 */
+}
+
+.path-part img {
+    width: 14px; /* 이미지 크기 조정 */
+    height: auto;
+    margin-right: 2px;
+}
+
+.path-part span {
+    font-family: "Ubuntu";
+    font-size: 12px;
+}
+/*disign path*/
+
+.result-content {
+    box-shadow: 3px 5px 10px rgba(10, 10, 10, 0.3);
+    border-radius: 30px;
+    word-break: break-word;
+    padding: 30px 10px 30px 10px;
+    margin: 30px;
+    background-color: white;
+    width: 270px; /* 고정 너비 설정 */
+    height: 320px; /* 고정 높이 설정 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.result-content:hover {
+    transform: translateY(-5px); /* 살짝 위로 이동 */
+    box-shadow: 4px 6px 10px rgba(10, 10, 10, 0.3);
+}
+
+.result-content:hover > .clipboard {
+    display: block;
+}
+
+.result-content > .image-set > img {
+    height: 120px;
+    margin-top: 20px;
+}
+
+.clipboard {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    opacity: 0.7;
+}
+
+.result-content > span {
+    font-family: "Ubuntu";
+}
+
+.file-content {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.filename-border {
+    border-radius: 5px;
+    padding: 5pt;
+    margin: 10px;
+    overflow: hidden; /* 넘치는 텍스트 숨기기 */
+    text-align: center; /* 텍스트를 중앙 정렬 */
+    display: block;
+    width: 100%; /* 고정 너비 설정 */
+}
+
+.filename-border > span {
+    font-family: "Ubuntu";
+    font-size: 12pt;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* 텍스트를 한 줄로 유지 */
+    overflow: hidden; /* 넘치는 텍스트 숨기기 */
+    display: inline-block; /* 인라인 블록으로 설정 */
+    max-width: 100%; /* 부모 요소의 크기에 맞추기 */
+    vertical-align: middle; /* 중앙 정렬 보조 */
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.file-content > span{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Ubuntu";
+}
+
+.file-detail {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.file-detail > span{
+    margin: 0 20px 0 20px;
+    font-family: "Ubuntu";
+    font-size: 9pt;
+    color: #aeaeae;
+}
+
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #d35454;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    animation: spin 2s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -60px;
+    margin-left: -60px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 로딩 애니메이션 컨테이너 스타일 */
+.loader-container {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: none; /* 기본적으로 숨김 */
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.nofile-flag {
+    width: 100vw;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nofile-flag > img {
+    width: 150px;
+    z-index: 1;
+}
+/*result */
